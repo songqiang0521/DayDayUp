@@ -1,0 +1,43 @@
+// AdderComponent.idl : IDL source for AdderComponent.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AdderComponent.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	
+	[
+		object,
+		uuid(B626FAC9-AB97-4409-A413-A31EC307F25F),
+		dual,
+		helpstring("IAdder Interface"),
+		pointer_default(unique)
+	]
+	interface IAdder : IDispatch
+	{
+		[id(1), helpstring("method Add")] HRESULT Add(int n1,int n2,int* result);
+		[id(2), helpstring("method Sub")] HRESULT Sub(int n1,int n2,int* result);
+		[id(3), helpstring("method Mul")] HRESULT Mul(int n1,int n2,int* result);
+	};
+
+[
+	uuid(4AC2AC57-AF56-46D5-83EE-7D690452B668),
+	version(1.0),
+	helpstring("AdderComponent 1.0 Type Library")
+]
+library ADDERCOMPONENTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(B3C114FE-5A60-49E7-A946-CF45C9D1D59D),
+		helpstring("Adder Class")
+	]
+	coclass Adder
+	{
+		[default] interface IAdder;
+	};
+};

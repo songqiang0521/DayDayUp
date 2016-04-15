@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "位图排序", "位图排序\位图排序.csproj", "{16309C08-629C-4BD5-88FD-89DD7907FFBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "数组", "数组\数组.csproj", "{0489E4E4-8E3C-47D8-896A-A6FA141DB387}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16309C08-629C-4BD5-88FD-89DD7907FFBE}.Debug|x86.ActiveCfg = Debug|x86
+		{16309C08-629C-4BD5-88FD-89DD7907FFBE}.Debug|x86.Build.0 = Debug|x86
+		{16309C08-629C-4BD5-88FD-89DD7907FFBE}.Release|x86.ActiveCfg = Release|x86
+		{16309C08-629C-4BD5-88FD-89DD7907FFBE}.Release|x86.Build.0 = Release|x86
+		{0489E4E4-8E3C-47D8-896A-A6FA141DB387}.Debug|x86.ActiveCfg = Debug|x86
+		{0489E4E4-8E3C-47D8-896A-A6FA141DB387}.Debug|x86.Build.0 = Debug|x86
+		{0489E4E4-8E3C-47D8-896A-A6FA141DB387}.Release|x86.ActiveCfg = Release|x86
+		{0489E4E4-8E3C-47D8-896A-A6FA141DB387}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

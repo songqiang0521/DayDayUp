@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvvm-demo", "mvvm-demo\mvvm-demo.csproj", "{68CD6BE5-AA43-4C2F-A464-EE2891AEEAA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvvm-demo-wpf", "mvvm-demo-wpf\mvvm-demo-wpf.csproj", "{1EBA2E57-2338-456F-A05E-E42FD91F5F37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68CD6BE5-AA43-4C2F-A464-EE2891AEEAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CD6BE5-AA43-4C2F-A464-EE2891AEEAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CD6BE5-AA43-4C2F-A464-EE2891AEEAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CD6BE5-AA43-4C2F-A464-EE2891AEEAA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EBA2E57-2338-456F-A05E-E42FD91F5F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EBA2E57-2338-456F-A05E-E42FD91F5F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EBA2E57-2338-456F-A05E-E42FD91F5F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EBA2E57-2338-456F-A05E-E42FD91F5F37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://songqiang0521.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = mvvm-demo-wpf\\mvvm-demo-wpf.csproj
+		SccProjectName1 = mvvm-demo-wpf
+		SccLocalPath1 = mvvm-demo-wpf
+		SccProjectUniqueName2 = mvvm-demo\\mvvm-demo.csproj
+		SccProjectName2 = mvvm-demo
+		SccLocalPath2 = mvvm-demo
+	EndGlobalSection
+EndGlobal

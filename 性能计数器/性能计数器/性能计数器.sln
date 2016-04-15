@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "性能计数器", "性能计数器\性能计数器.csproj", "{EC494576-FCD7-49D1-85CC-DB23BAF4A6FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "跟踪", "跟踪\跟踪.csproj", "{25EB76E1-0345-43F1-AF64-3AF04FE95AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "日志查看", "日志查看\日志查看.csproj", "{548CA5D5-A2E0-478B-A106-2FBE5B3E2294}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC494576-FCD7-49D1-85CC-DB23BAF4A6FC}.Debug|x86.ActiveCfg = Debug|x86
+		{EC494576-FCD7-49D1-85CC-DB23BAF4A6FC}.Debug|x86.Build.0 = Debug|x86
+		{EC494576-FCD7-49D1-85CC-DB23BAF4A6FC}.Release|x86.ActiveCfg = Release|x86
+		{EC494576-FCD7-49D1-85CC-DB23BAF4A6FC}.Release|x86.Build.0 = Release|x86
+		{25EB76E1-0345-43F1-AF64-3AF04FE95AFA}.Debug|x86.ActiveCfg = Debug|x86
+		{25EB76E1-0345-43F1-AF64-3AF04FE95AFA}.Debug|x86.Build.0 = Debug|x86
+		{25EB76E1-0345-43F1-AF64-3AF04FE95AFA}.Release|x86.ActiveCfg = Release|x86
+		{25EB76E1-0345-43F1-AF64-3AF04FE95AFA}.Release|x86.Build.0 = Release|x86
+		{548CA5D5-A2E0-478B-A106-2FBE5B3E2294}.Debug|x86.ActiveCfg = Debug|x86
+		{548CA5D5-A2E0-478B-A106-2FBE5B3E2294}.Debug|x86.Build.0 = Debug|x86
+		{548CA5D5-A2E0-478B-A106-2FBE5B3E2294}.Release|x86.ActiveCfg = Release|x86
+		{548CA5D5-A2E0-478B-A106-2FBE5B3E2294}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

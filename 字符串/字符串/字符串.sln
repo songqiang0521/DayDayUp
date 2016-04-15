@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "字符串", "字符串\字符串.csproj", "{6B33B6D4-7A48-482E-9EAB-912B0B27ED15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "枚举", "枚举\枚举.csproj", "{FA515D4C-C1E1-4377-BC53-B8BC033B0D52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "数组", "数组\数组.csproj", "{49254C52-BFDC-44AE-932C-6D766627B1E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "异常", "异常\异常.csproj", "{11FDE51B-FBF5-41E3-900A-8F0F953D5ECC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B33B6D4-7A48-482E-9EAB-912B0B27ED15}.Debug|x86.ActiveCfg = Debug|x86
+		{6B33B6D4-7A48-482E-9EAB-912B0B27ED15}.Debug|x86.Build.0 = Debug|x86
+		{6B33B6D4-7A48-482E-9EAB-912B0B27ED15}.Release|x86.ActiveCfg = Release|x86
+		{6B33B6D4-7A48-482E-9EAB-912B0B27ED15}.Release|x86.Build.0 = Release|x86
+		{FA515D4C-C1E1-4377-BC53-B8BC033B0D52}.Debug|x86.ActiveCfg = Debug|x86
+		{FA515D4C-C1E1-4377-BC53-B8BC033B0D52}.Debug|x86.Build.0 = Debug|x86
+		{FA515D4C-C1E1-4377-BC53-B8BC033B0D52}.Release|x86.ActiveCfg = Release|x86
+		{FA515D4C-C1E1-4377-BC53-B8BC033B0D52}.Release|x86.Build.0 = Release|x86
+		{49254C52-BFDC-44AE-932C-6D766627B1E5}.Debug|x86.ActiveCfg = Debug|x86
+		{49254C52-BFDC-44AE-932C-6D766627B1E5}.Debug|x86.Build.0 = Debug|x86
+		{49254C52-BFDC-44AE-932C-6D766627B1E5}.Release|x86.ActiveCfg = Release|x86
+		{49254C52-BFDC-44AE-932C-6D766627B1E5}.Release|x86.Build.0 = Release|x86
+		{11FDE51B-FBF5-41E3-900A-8F0F953D5ECC}.Debug|x86.ActiveCfg = Debug|x86
+		{11FDE51B-FBF5-41E3-900A-8F0F953D5ECC}.Debug|x86.Build.0 = Debug|x86
+		{11FDE51B-FBF5-41E3-900A-8F0F953D5ECC}.Release|x86.ActiveCfg = Release|x86
+		{11FDE51B-FBF5-41E3-900A-8F0F953D5ECC}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

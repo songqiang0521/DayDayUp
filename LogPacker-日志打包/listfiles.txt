@@ -1,0 +1,5 @@
+C:\*.log
+D:\MACSV服务器安装\Macs
+D:\MACSV服务器安装\HISTDATA\HDB\2014年10月19日
+Application.txt
+System.txt

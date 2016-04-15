@@ -1,0 +1,23 @@
+HKCR
+{
+	AdderComponent.Adder.1 = s 'Adder Class'
+	{
+		CLSID = s '{B3C114FE-5A60-49E7-A946-CF45C9D1D59D}'
+	}
+	AdderComponent.Adder = s 'Adder Class'
+	{
+		CLSID = s '{B3C114FE-5A60-49E7-A946-CF45C9D1D59D}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B3C114FE-5A60-49E7-A946-CF45C9D1D59D} = s 'Adder Class'
+		{
+			ProgID = s 'AdderComponent.Adder.1'
+			VersionIndependentProgID = s 'AdderComponent.Adder'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

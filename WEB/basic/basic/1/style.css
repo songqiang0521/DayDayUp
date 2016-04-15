@@ -1,0 +1,87 @@
+﻿body {
+}
+
+.big-bold-red
+{
+    font-family:Arial;
+    font-size:25pt;
+    color:red;
+}
+
+.bold-red
+{
+    font-family:serif;
+    font-size:15pt;
+    color:red;
+}
+
+#paragraph
+{
+    font-family:'Times New Roman';
+    font-size:xx-large;
+}
+
+#newspost
+{
+background-color:deepskyblue;
+}
+.newsheader
+{
+    color:blue;
+    font-size:15pt;
+}
+.newstext
+{
+    color:red;
+    font-size:10pt;
+}
+
+
+#newspost2 h1
+{
+    color:coral;
+    font-size:25pt;
+}
+#newspost2 p
+{
+    color:black;
+    font-size:20pt;
+}
+
+.newspost
+{
+    background-color:black;
+}
+
+.newspost h1
+{
+    background-color:red;
+    color:white;
+}
+.newspost p
+{
+    background-color:red;
+    color:white;
+}
+
+.hoverclass
+{
+    font-size:20pt;
+    color:red;
+}
+
+
+.hoverclass:hover
+{
+    font-size:30pt;
+    color:blue;
+}
+
+p
+{
+    font-size:60pt;
+}
+
+
+
+

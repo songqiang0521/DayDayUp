@@ -1,0 +1,78 @@
+http://forums.codeguru.com/showthread.php?518947-malloc-HeapAlloc-returns-NULL-but-there-is-plenty-of-memory
+
+
+#include <stdio.h>
+#include <malloc.h>
+
+void heapdump( void );
+
+void main( void )
+{
+   char *buffer;
+
+   heapdump();
+   if( (buffer = malloc( 59 )) != NULL )
+   {
+      heapdump();
+      free( buffer );
+   }
+   heapdump();
+}
+
+void heapdump( void )
+{
+   _HEAPINFO hinfo;
+   int heapstatus;
+   hinfo._pentry = NULL;
+   while( ( heapstatus = _heapwalk( &hinfo ) ) == _HEAPOK )
+   { printf( "%6s block at %Fp of size %4.4X\n",
+        ( hinfo._useflag == _USEDENTRY ? "USED" : "FREE" ),
+          hinfo._pentry, hinfo._size );
+   }
+
+   switch( heapstatus )
+   {
+   case _HEAPEMPTY:
+      printf( "OK - empty heap\n" );
+      break;
+   case _HEAPEND:
+      printf( "OK - end of heap\n" );
+      break;
+   case _HEAPBADPTR:
+      printf( "ERROR - bad pointer to heap\n" );
+      break;
+   case _HEAPBADBEGIN:
+      printf( "ERROR - bad start of heap\n" );
+      break;
+   case _HEAPBADNODE:
+      printf( "ERROR - bad node in heap\n" );
+      break;
+   }
+}
+
+Output
+  USED block at 002C0004 of size 0014
+  USED block at 002C001C of size 0054
+  USED block at 002C0074 of size 0024
+  USED block at 002C009C of size 0010
+  USED block at 002C00B0 of size 0018
+  USED block at 002C00CC of size 000C
+  USED block at 002C00DC of size 001C
+  USED block at 002C00FC of size 0010
+  USED block at 002C0110 of size 0014
+  USED block at 002C0128 of size 0010
+  USED block at 002C013C of size 0028
+  USED block at 002C0168 of size 0088
+  USED block at 002C01F4 of size 001C
+  USED block at 002C0214 of size 0014
+  USED block at 002C022C of size 0010
+  USED block at 002C0240 of size 0014
+  USED block at 002C0258 of size 0010
+  USED block at 002C026C of size 000C
+  USED block at 002C027C of size 0010
+  USED block at 002C0290 of size 0014
+  USED block at 002C02A8 of size 0010
+  USED block at 002C02BC of size 0010
+  USED block at 002C02D0 of size 1000
+  FREE block at 002C12D4 of size ED2C
+OK - end of heap

@@ -1,0 +1,42 @@
+﻿body {
+}
+
+* {
+    margin:3px;
+    padding: 1px;
+}
+
+section
+{
+    font-family:sans-serif;
+    font-size:12pt;
+}
+
+section h1+p
+{
+    color:black;
+    font-size:30pt;
+    font-style:italic;
+}
+section h1
+{
+    color:green;
+    border-bottom:1px solid green;
+    font-size:15pt;
+}
+
+section p
+{
+    color:gray;
+}
+
+div.test >p
+{
+    color:red;
+}
+
+p~ul a
+{
+    color:red;
+}
+

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Basic HTML 5 document</title>
+    <meta charset="utf-8" />
+    <link href="bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <hr />
+    <style>
+        .niceDiv
+        {
+            width:200px;
+            height:100px;
+            background-color:beige;
+            padding:4px;
+            border:1px solid black;
+            border-radius:5px 15px 30px 50px;
+            color:darkviolet;
+        }
+    </style>
+    <div class="niceDiv  topRight">
+        <p>This is a nice div with no sharp corners</p>
+    </div>
+
+    
+    
+    <hr />
+    <style>
+        .shadows
+        {
+            width:100px;
+            height:100px;
+            background-color:rgba(255,255,0,.3);
+            padding:4px;
+            border:1px solid black;
+            display:inline-block;
+            margin:15px;
+        }
+        .topLeft
+        {
+            box-shadow:-10px -10px 5px 2px #ff0000;
+        }
+        .bottomLeft
+        {
+            box-shadow:-10px 10px 5px 1px #00ff00;
+        }
+        .bottomRight
+        {
+            box-shadow:10px 10px 2px 1px #0000ff;
+        }
+        .topRight
+        {
+            box-shadow:10px -10px 10px 1px #dd0000;
+        }
+    </style>
+    <div class="shadows topLeft">
+        <p>This is a nice div with drop shadows</p>
+    </div>
+    <div class="shadows bottomLeft">
+        <p>This is a nice div with drop shadows</p>
+    </div>
+    <div class="shadows bottomRight">
+        <p>This is a nice div with drop shadows</p>
+    </div>
+    <div class="shadows topRight">
+        <p>This is a nice div with drop shadows</p>
+    </div>
+
+    <hr />
+    <style>
+        h1
+        {
+            text-shadow:red 5px 10px 8px;
+        }
+    </style>
+    <h1>H1 Drop Shadow Text</h1>
+
+
+    <hr />
+    <style>
+        .gradDiv
+        {
+            width:120px;
+            height:100px;
+            background-color:salmon;
+            padding:4px;
+            display:inline-block;
+            margin:15px;
+            background-image:linear-gradient(black 50%,red 50%,blue 10%);
+        }
+    </style>
+    <div class="gradDiv">
+        <p>I'm a div with a gradient</p>
+    </div>
+</body>
+</html>

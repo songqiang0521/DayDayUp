@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A19B9FE6-658D-4442-B745-04AC6D5DBB0E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Net.FtpClient</RootNamespace>
+    <AssemblyName>System.Net.FtpClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="examples\AssemblyInfo.cs" />
+    <Compile Include="examples\BeginConnect.cs" />
+    <Compile Include="examples\BeginCreateDirectory.cs" />
+    <Compile Include="examples\BeginDeleteDirectory.cs" />
+    <Compile Include="examples\BeginDeleteFile.cs" />
+    <Compile Include="examples\BeginDereferenceLink.cs" />
+    <Compile Include="examples\BeginDirectoryExists.cs" />
+    <Compile Include="examples\BeginDisconnect.cs" />
+    <Compile Include="examples\BeginExecute.cs" />
+    <Compile Include="examples\BeginFileExists.cs" />
+    <Compile Include="examples\BeginGetFileSize.cs" />
+    <Compile Include="examples\BeginGetListing.cs" />
+    <Compile Include="examples\BeginGetModifiedTime.cs" />
+    <Compile Include="examples\BeginGetNameListing.cs" />
+    <Compile Include="examples\BeginGetWorkingDirectory.cs" />
+    <Compile Include="examples\BeginOpenAppend.cs" />
+    <Compile Include="examples\BeginOpenRead.cs" />
+    <Compile Include="examples\BeginOpenWrite.cs" />
+    <Compile Include="examples\BeginRename.cs" />
+    <Compile Include="examples\BeginSetWorkingDirectory.cs" />
+    <Compile Include="examples\Connect.cs" />
+    <Compile Include="examples\CreateDirectory.cs" />
+    <Compile Include="examples\CustomParser.cs" />
+    <Compile Include="examples\Debug.cs" />
+    <Compile Include="examples\DeleteDirectory.cs" />
+    <Compile Include="examples\DeleteFile.cs" />
+    <Compile Include="examples\DereferenceLink.cs" />
+    <Compile Include="examples\DirectoryExists.cs" />
+    <Compile Include="examples\Execute.cs" />
+    <Compile Include="examples\Extensions.cs" />
+    <Compile Include="examples\FileExists.cs" />
+    <Compile Include="examples\GetChecksum.cs" />
+    <Compile Include="examples\GetFileSize.cs" />
+    <Compile Include="examples\GetHash.cs" />
+    <Compile Include="examples\GetHashAlgorithm.cs" />
+    <Compile Include="examples\GetListing.cs" />
+    <Compile Include="examples\GetModifiedTime.cs" />
+    <Compile Include="examples\GetNameListing.cs" />
+    <Compile Include="examples\GetWorkingDirectory.cs" />
+    <Compile Include="examples\Main.cs" />
+    <Compile Include="examples\OpenAppend.cs" />
+    <Compile Include="examples\OpenAppendURI.cs" />
+    <Compile Include="examples\OpenRead.cs" />
+    <Compile Include="examples\OpenReadURI.cs" />
+    <Compile Include="examples\OpenWrite.cs" />
+    <Compile Include="examples\OpenWriteURI.cs" />
+    <Compile Include="examples\Rename.cs" />
+    <Compile Include="examples\SetEncryptionProtocols.cs" />
+    <Compile Include="examples\SetHashAlgorithm.cs" />
+    <Compile Include="examples\SetWorkingDirectory.cs" />
+    <Compile Include="examples\ValidateCertificate.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="source\AssemblyInfo.cs" />
+    <Compile Include="source\FtpClient.cs" />
+    <Compile Include="source\FtpDataStream.cs" />
+    <Compile Include="source\FtpEnums.cs" />
+    <Compile Include="source\FtpExceptions.cs" />
+    <Compile Include="source\FtpExtensionAttribute.cs" />
+    <Compile Include="source\FtpExtensions.cs" />
+    <Compile Include="source\FtpHash.cs" />
+    <Compile Include="source\FtpListItem.cs" />
+    <Compile Include="source\FtpReply.cs" />
+    <Compile Include="source\FtpSocketStream.cs" />
+    <Compile Include="source\FtpTrace.cs" />
+    <Compile Include="source\IFtpClient.cs" />
+    <Compile Include="source\IFtpListItem.cs" />
+    <Compile Include="source\IFtpReply.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\System.Net.FtpClient.dll" />
+    <Content Include="bin\Debug\System.Net.FtpClient.dll.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\System.Net.FtpClient.vshost.exe" />
+    <Content Include="bin\Debug\System.Net.FtpClient.XML" />
+    <Content Include="bin\Release\System.Net.FtpClient.dll" />
+    <Content Include="bin\Release\System.Net.FtpClient.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\System.Net.FtpClient.vshost.exe.manifest" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
