@@ -1,0 +1,66 @@
+\PhysicalDisk(*)\Current Disk Queue Length
+\PhysicalDisk(*)\Avg. Disk Read Queue Length
+\PhysicalDisk(*)\Avg. Disk Write Queue Length
+\PhysicalDisk(*)\Disk Reads/sec
+\PhysicalDisk(*)\Disk Writes/sec
+\PhysicalDisk(*)\Disk Bytes/sec
+\PhysicalDisk(*)\Disk Read Bytes/sec
+\PhysicalDisk(*)\Disk Write Bytes/sec
+
+
+\Processor(*)\% Processor Time
+\Processor(*)\% User Time
+\Processor(*)\% Privileged Time
+
+
+\Memory\Page Faults/sec
+\Memory\Available Bytes
+\Memory\Committed Bytes
+\Memory\Pages Output/sec
+\Memory\Pool Paged Bytes
+\Memory\Pool Nonpaged Bytes
+\Memory\System Driver Total Bytes
+\Memory\System Driver Resident Bytes
+\Memory\Available MBytes
+
+
+\Objects\Processes
+\Objects\Threads
+\Objects\Events
+\Objects\Semaphores
+\Objects\Mutexes
+\Objects\Sections
+
+
+\Paging File(*)\% Usage
+
+
+\System\File Read Operations/sec
+\System\File Write Operations/sec
+\System\File Read Bytes/sec
+\System\File Write Bytes/sec
+\System\Context Switches/sec
+\System\System Calls/sec
+\System\Processes
+\System\Threads
+
+
+\Process(*)\% Processor Time
+\Process(*)\% User Time
+\Process(*)\% Privileged Time
+\Process(*)\Virtual Bytes
+\Process(*)\Page Faults/sec
+\Process(*)\Working Set
+\Process(*)\Page File Bytes
+\Process(*)\Private Bytes
+\Process(*)\Thread Count
+\Process(*)\Pool Paged Bytes
+\Process(*)\Pool Nonpaged Bytes
+\Process(*)\Handle Count
+\Process(*)\IO Read Operations/sec
+\Process(*)\IO Write Operations/sec
+\Process(*)\IO Data Operations/sec
+\Process(*)\IO Read Bytes/sec
+\Process(*)\IO Write Bytes/sec
+\Process(*)\IO Data Bytes/sec
+\Process(*)\Working Set - Private

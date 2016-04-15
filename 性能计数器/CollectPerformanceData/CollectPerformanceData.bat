@@ -1,0 +1,1 @@
+typeperf -cf counters.txt -si 10 -y -sc 88888888 -f csv -o perfdatas.csv
