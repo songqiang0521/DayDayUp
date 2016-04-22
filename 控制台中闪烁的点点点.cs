@@ -18,18 +18,15 @@ namespace ConsoleApplication2
             "start....",
             "start....."
         };
+
+        static Timer timer = new Timer(500);
         static void Main(string[] args)
         {
-
             Console.Write("heihei......start......");
             left= Console.CursorLeft = "heihei......start......".IndexOf("start");
-
-
-            Timer timer = new Timer(500);
             timer.Elapsed += timer_Elapsed;
             timer.Start();
             Console.ReadKey();
-
         }
 
         static void timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -39,9 +36,6 @@ namespace ConsoleApplication2
             index++;
             Console.CursorLeft=left;
             Console.Write(strings[index%5]);
-
-
-
         }
     }
 }
