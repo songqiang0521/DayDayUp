@@ -17,7 +17,8 @@ namespace ConsoleApplication2
             "start...",
             "start....",
             "start.....",
-            "start......"
+            "start......",
+            "start......."
         };
 
         static Timer timer = new Timer(500);
