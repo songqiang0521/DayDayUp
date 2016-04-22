@@ -1,1 +1,12 @@
 D:\99se\vso\DAYDAYUP\WindowsUI\DelayTextBox\bin\Debug\DelayTextBox.exe.config
+D:\99se\git\DayDayUp\DelayTextBox\bin\Debug\DelayTextBox.exe.config
+D:\99se\git\DayDayUp\DelayTextBox\bin\Debug\DelayTextBox.exe
+D:\99se\git\DayDayUp\DelayTextBox\bin\Debug\DelayTextBox.pdb
+D:\99se\git\DayDayUp\DelayTextBox\obj\Debug\DelayTextBox.Form1.resources
+D:\99se\git\DayDayUp\DelayTextBox\obj\Debug\DelayTextBox.Properties.Resources.resources
+D:\99se\git\DayDayUp\DelayTextBox\obj\Debug\DelayTextBox.csproj.GenerateResource.Cache
+D:\99se\git\DayDayUp\DelayTextBox\obj\Debug\DelayTextBox.exe
+D:\99se\git\DayDayUp\DelayTextBox\obj\Debug\DelayTextBox.pdb
+D:\99se\git\DayDayUp\DelayTextBox\bin\Debug\DelayedTextBoxControl.dll
+D:\99se\git\DayDayUp\DelayTextBox\bin\Debug\DelayedTextBoxControl.pdb
+D:\99se\git\DayDayUp\DelayTextBox\obj\Debug\DelayTextBox.csprojResolveAssemblyReference.cache

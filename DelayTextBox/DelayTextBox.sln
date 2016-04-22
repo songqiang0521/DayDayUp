@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayTextBox", "DelayTextBox.csproj", "{15483E28-3E93-4BE5-BD38-43593F16DF72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayedTextBox", "DelayedTextBox\DelayedTextBox.csproj", "{EF304981-E669-4B98-A5B1-0F61CA5159B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayTextBoxControl", "DelayTextBoxControl\DelayTextBoxControl.csproj", "{4FC047AD-B42A-4DEB-A5AD-03C791E0ED7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{BA478239-99A2-453D-80C2-4680CA98744F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,27 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{15483E28-3E93-4BE5-BD38-43593F16DF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15483E28-3E93-4BE5-BD38-43593F16DF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15483E28-3E93-4BE5-BD38-43593F16DF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15483E28-3E93-4BE5-BD38-43593F16DF72}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FC047AD-B42A-4DEB-A5AD-03C791E0ED7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FC047AD-B42A-4DEB-A5AD-03C791E0ED7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FC047AD-B42A-4DEB-A5AD-03C791E0ED7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FC047AD-B42A-4DEB-A5AD-03C791E0ED7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF304981-E669-4B98-A5B1-0F61CA5159B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF304981-E669-4B98-A5B1-0F61CA5159B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF304981-E669-4B98-A5B1-0F61CA5159B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF304981-E669-4B98-A5B1-0F61CA5159B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA478239-99A2-453D-80C2-4680CA98744F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA478239-99A2-453D-80C2-4680CA98744F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA478239-99A2-453D-80C2-4680CA98744F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA478239-99A2-453D-80C2-4680CA98744F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://songqiang.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = DelayTextBox.csproj
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = DelayTextBoxControl\\DelayTextBoxControl.csproj
-		SccProjectName2 = DelayTextBoxControl
-		SccLocalPath2 = DelayTextBoxControl
 	EndGlobalSection
 EndGlobal
