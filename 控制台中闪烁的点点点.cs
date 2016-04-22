@@ -24,8 +24,8 @@ namespace ConsoleApplication2
         static Timer timer = new Timer(500);
         static void Main(string[] args)
         {
-            Console.Write("heihei......start......");
-            left = Console.CursorLeft = "heihei......start......".IndexOf("start");
+            Console.Write("start......");
+            left = Console.CursorLeft = "start......".IndexOf("start");
             timer.Elapsed += timer_Elapsed;
             timer.Start();
             Console.ReadKey();
