@@ -8,30 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Diagnostics;
 
 using LumenWorks.Framework.IO.Csv;
-
 
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.WindowsForms;
 using OxyPlot.Axes;
-using System.Diagnostics;
-
-
 
 
 namespace Hollysys.LeakAnalyzer
 {
-
     public partial class MainForm : Form
     {
         private string _fileName;
         private ColumnItem[] _columns;
         private DateTime[] _times;
         private bool allItemsBeSeen;
-
 
         private List<string> allItems;
         private List<string> suspiciousItems;
@@ -45,19 +39,43 @@ namespace Hollysys.LeakAnalyzer
         private Point downPoint;
         private Point upPoint;
 
-
-
         /// <summary>
         /// 填充时间、数据
         /// </summary>
         /// <param name="filename"></param>
         private bool FillDatas(string filename)
         {
+            int lineCount = 0;
             //打开CSV文件,带标题,64K缓冲
             using (var fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
             using (var s = new StreamReader(fs))
             using (CsvReader csv = new CsvReader(s, true, 0xFFFF))
             {
+                //
+                //获取整个文件的行数
+                //
+                lineCount = 0;
+                while (true)
+                {
+                    int ret = fs.ReadByte();
+                    if (ret == -1)
+                    {
+                        break;
+                    }
+                    if ((char)ret == '\r' || (char)ret == '\n')
+                    {
+                        lineCount++;
+                        fs.Position++;
+                    }
+                }
+                fs.Position = 0;
+
+                if (lineCount < 100)
+                {
+                    MessageBox.Show("数据少于100行", "错误");
+                    return false;
+                }
+
                 int fieldCount = csv.FieldCount;
                 _columns = new ColumnItem[fieldCount];
 
@@ -68,20 +86,10 @@ namespace Hollysys.LeakAnalyzer
                 {
                     _columns[i].HeaderName = headers[i];
 
-                    //DataType type = (_columns[i].HeaderName.Contains(@"%")
-                    //                || _columns[i].HeaderName.Contains(@"/")
-                    //                || _columns[i].HeaderName.Contains("Elapsed Time")
-                    //                ||_columns[i].HeaderName.Contains(@"Avg")
-                    //                ||_columns[i].HeaderName.Contains(@"System Up Time"))
-                    //                ? DataType.DOUBLE : DataType.UINT64;
-
                     //将所有数据当作DOUBLE来处理
                     DataType type = DataType.DOUBLE;
-
                     _columns[i].DataType = type;
-
-                    //就先估计10*1000行数据吧
-                    _columns[i].Values = new List<string>(10 * 1000);
+                    _columns[i].Values = new List<string>(lineCount + 10);
                 }
 
                 while (csv.ReadNextRecord())
@@ -93,12 +101,6 @@ namespace Hollysys.LeakAnalyzer
 
                 }
             }//end csvreader
-
-            if (_columns[0].Values.Count<200)
-            {
-                MessageBox.Show("数据少于100行","错误");
-                return false;
-            }
 
             //填充时间
             string firstTime = _columns[0].Values[0];
@@ -247,7 +249,7 @@ namespace Hollysys.LeakAnalyzer
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listBox1.SelectedIndex;
-            if (index<0)
+            if (index < 0)
             {
                 return;
             }
@@ -282,8 +284,8 @@ namespace Hollysys.LeakAnalyzer
                 {
                     DoubleItem item = new DoubleItem();
                     item.Date = _times[i];
-                    
-                    if (_columns[index].Values[i] == " " ||_columns[index].Values[i]==""|| _columns[index].Values[i] == "0" || string.IsNullOrEmpty(_columns[index].Values[i]))
+
+                    if (_columns[index].Values[i] == " " || _columns[index].Values[i] == "" || _columns[index].Values[i] == "0" || string.IsNullOrEmpty(_columns[index].Values[i]))
                     {
 
                         item.Value = 0.0;
@@ -352,7 +354,7 @@ namespace Hollysys.LeakAnalyzer
                 double[] values = new double[_columns[index].Values.Count - excludeCount * 2];
                 for (int i = 0; i < values.Length; i++)
                 {
-                    if (_columns[index].Values[i] == " " ||_columns[index].Values[i]==""|| _columns[index].Values[i] == "0" || string.IsNullOrEmpty(_columns[index].Values[i + excludeCount]))
+                    if (_columns[index].Values[i] == " " || _columns[index].Values[i] == "" || _columns[index].Values[i] == "0" || string.IsNullOrEmpty(_columns[index].Values[i + excludeCount]))
                     {
                         values[i] = 0.0;
                     }
@@ -402,8 +404,8 @@ namespace Hollysys.LeakAnalyzer
                         double percent_10to1 = analyzer.GetPercentOfLatterBigThanFormerBySections(pValues, values.Length, values.Length / 10);
                         double percent_20to1 = analyzer.GetPercentOfLatterBigThanFormerBySections(pValues, values.Length, values.Length / 20);
                         double percent_50to1 = analyzer.GetPercentOfLatterBigThanFormerBySections(pValues, values.Length, values.Length / 50);
-                        
-                        
+
+
                         //double100 要成立的话，至少需要500以上的点了
                         //double percent_100to1 = analyzer.GetPercentOfLatterBigThanFormerBySections(pValues, values.Length, values.Length / 100);
 
@@ -450,7 +452,7 @@ namespace Hollysys.LeakAnalyzer
                         //
                         if (percent_1to1 > 0.8
                             ||
-                            ( percent_10to1 > 0.8
+                            (percent_10to1 > 0.8
                             && percent_10to1 <= percent_20to1  //LBTFBS逐渐增大
                             && percent_20to1 <= percent_50to1
                             //&& percent_50to1 <= percent_100to1
@@ -476,15 +478,16 @@ namespace Hollysys.LeakAnalyzer
                         //    textBox2.BackColor = Color.Yellow;
                         //}
 
-
-
-                        textBox2.Text += "最大值:" + max.ToString("F3")+Environment.NewLine;
+                        textBox2.Text += "最大值:" + max.ToString("F3") + Environment.NewLine;
                         textBox2.Text += "最小值:" + min.ToString("F3") + Environment.NewLine;
-                        textBox2.Text += "差值百分比[(max-min)/min]:" + ((max - min) / min).ToString("F3") + Environment.NewLine;
-
-
-
-
+                       
+                        int firstIndex = 50;
+                        int lastIndex = _columns[index].Values.Count - 50;
+                        double firstValue = Convert.ToDouble(_columns[index].Values[firstIndex]);
+                        double lastValue = Convert.ToDouble(_columns[index].Values[lastIndex]);
+                        double seconds = (_times[lastIndex] - _times[firstIndex]).Seconds;
+                        double KBPerMinute = (lastValue - firstValue) / 1024 / 3600/ seconds;
+                        textBox2.Text += "每小时增长:" + KBPerMinute.ToString("F3") + "KB" + Environment.NewLine;
                     }
                 }
 
@@ -684,7 +687,7 @@ namespace Hollysys.LeakAnalyzer
 
                 for (int i = 0; i < values.Length; i++)
                 {
-                    if (_columns[index].Values[i] == " " ||_columns[index].Values[i]==""|| _columns[index].Values[i] == "0" || string.IsNullOrEmpty(_columns[index].Values[i + excludeCount]))
+                    if (_columns[index].Values[i] == " " || _columns[index].Values[i] == "" || _columns[index].Values[i] == "0" || string.IsNullOrEmpty(_columns[index].Values[i + excludeCount]))
                     {
                         values[i] = 0.0;
                     }
@@ -763,7 +766,7 @@ namespace Hollysys.LeakAnalyzer
                         double betweenMean = analyzer.GetMeanValue(valuesBetween);
                         double endMean = analyzer.GetMeanValue(valuesEnd);
 
-                     
+
 
                         double dif = max - min;
                         bool add = false;
@@ -788,13 +791,13 @@ namespace Hollysys.LeakAnalyzer
                         //增加滤除条件
                         if (_columns[index].HeaderName.Contains("Elapsed"))
                         {
-                            add=false;
+                            add = false;
                         }
 
 
                         if (add)
                         {
-                            suspiciousItems.Add(_columns[index].HeaderName);                    
+                            suspiciousItems.Add(_columns[index].HeaderName);
                         }
 
                     }
@@ -810,7 +813,7 @@ namespace Hollysys.LeakAnalyzer
             listBox1.Items.AddRange(suspiciousItems.ToArray());
 
 
-            MessageBox.Show("可疑曲线个数:"+listBox1.Items.Count.ToString());
+            MessageBox.Show("可疑曲线个数:" + listBox1.Items.Count.ToString());
         }
 
 
