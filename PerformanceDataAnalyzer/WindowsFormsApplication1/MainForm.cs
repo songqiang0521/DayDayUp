@@ -53,7 +53,6 @@ namespace Hollysys.LeakAnalyzer
         /// <param name="filename"></param>
         private bool FillDatas(string filename)
         {
-
             //打开CSV文件,带标题,64K缓冲
             using (var fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
             using (var s = new StreamReader(fs))
@@ -95,6 +94,11 @@ namespace Hollysys.LeakAnalyzer
                 }
             }//end csvreader
 
+            if (_columns[0].Values.Count<200)
+            {
+                MessageBox.Show("数据少于100行","错误");
+                return false;
+            }
 
             //填充时间
             string firstTime = _columns[0].Values[0];
@@ -243,7 +247,10 @@ namespace Hollysys.LeakAnalyzer
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listBox1.SelectedIndex;
-
+            if (index<0)
+            {
+                return;
+            }
             //版本2-增加缓存
 
 
@@ -627,14 +634,14 @@ namespace Hollysys.LeakAnalyzer
             if (allItemsBeSeen)
             {
                 query = from col in allItems
-                        where col.Contains(textBox3.Text)
+                        where col.ToLower().Contains(textBox3.Text.ToLower())
                         select col;
 
             }
             else
             {
                 query = from col in suspiciousItems
-                        where col.Contains(textBox3.Text)
+                        where col.ToLower().Contains(textBox3.Text.ToLower())
                         select col;
 
             }
