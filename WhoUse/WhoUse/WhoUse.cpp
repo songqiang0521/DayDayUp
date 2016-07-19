@@ -77,7 +77,81 @@ void WhoUsesModule(LPCTSTR lpFileName, BOOL bFullPathCheck)
     }
 }
 
-void WhoUsesFile(LPCTSTR lpFileName, BOOL bFullPathCheck)
+DWORD CloseRemoteHandle(DWORD processID, HANDLE handle)
+{
+    HANDLE ht = 0;
+    DWORD rc = 0;
+
+    _tprintf(_T("Closing handle in process #%d ... "),
+        processID);
+
+    // open the process
+    HANDLE hProcess = OpenProcess(PROCESS_CREATE_THREAD
+        | PROCESS_VM_OPERATION
+        | PROCESS_VM_WRITE
+        | PROCESS_VM_READ,
+        FALSE, processID);
+
+    if (hProcess == NULL)
+    {
+        rc = GetLastError();
+        _tprintf(_T("OpenProcess() failed\n"));
+        return rc;
+    }
+
+    // load kernel32.dll
+    HMODULE hKernel32 = LoadLibrary(_T("kernel32.dll"));
+
+    // CreateRemoteThread()
+    ht = CreateRemoteThread(
+        hProcess,
+        0,
+        0,
+        (DWORD(__stdcall *)(void*))GetProcAddress(hKernel32, "CloseHandle"),
+        handle,
+        0,
+        &rc);
+
+    if (ht == NULL)
+    {
+        //Something is wrong with the privileges, 
+        //or the process doesn't like us
+        rc = GetLastError();
+        _tprintf(_T("CreateRemoteThread() failed\n"));
+        goto cleanup;
+    }
+
+    switch (WaitForSingleObject(ht, 2000))
+    {
+    case WAIT_OBJECT_0:
+        //Well done
+        rc = 0;
+        _tprintf(_T("Ok\n"), rc);
+        break;
+
+    default:
+        //Oooops, shouldn't be here
+        rc = GetLastError();
+        _tprintf(_T("WaitForSingleObject() failed\n"));
+        goto cleanup;
+        break;
+    }
+
+cleanup:
+    //Closes the remote thread handle
+    CloseHandle(ht);
+
+    //Free up the kernel32.dll
+    if (hKernel32 != NULL)
+        FreeLibrary(hKernel32);
+
+    //Close the process handle
+    CloseHandle(hProcess);
+
+    return rc;
+}
+
+void WhoUsesFile(LPCTSTR lpFileName, BOOL bFullPathCheck, BOOL del)
 {
     BOOL bShow = FALSE;
     CString name;
@@ -127,22 +201,10 @@ void WhoUsesFile(LPCTSTR lpFileName, BOOL bFullPathCheck)
 
         hi.GetName((HANDLE)h.HandleNumber, name, h.ProcessID);
 
-        //if (bFullPathCheck)
-        //    bShow = _tcsicmp(name, deviceFileName) == 0;
-        //else
-        //    bShow = _tcsicmp(GetFileNamePosition(name), lpFileName) == 0;
-
-        int pos_leaker=name.Find(_T("leaker"));
-        if (pos_leaker>0)
-        {
-            int x = 0;
-
-        }
-
         if (bFullPathCheck)
-            bShow = _tcsstr(name, deviceFileName)!=NULL;
+            bShow = _tcsstr(name, deviceFileName) != NULL;
         else
-            bShow = _tcsstr(GetFileNamePosition(name), lpFileName)!=NULL;
+            bShow = _tcsstr(GetFileNamePosition(name), lpFileName) != NULL;
 
         if (bShow)
         {
@@ -152,11 +214,18 @@ void WhoUsesFile(LPCTSTR lpFileName, BOOL bFullPathCheck)
                 SystemInfoUtils::GetFsFileName(name, fsFilePath);
             }
 
-            _tprintf(_T("0x%04X  %-20s  %s\n"),
+            _tprintf(_T("%d  %-20s  %s\n"),
                 h.ProcessID,
                 processName,
                 !bFullPathCheck ? fsFilePath : lpFileName);
+
+
+            if (del == TRUE)
+            {
+                CloseRemoteHandle(h.ProcessID,(HANDLE)h.HandleNumber);
+            }
         }
+
     }
 }
 
@@ -218,6 +287,7 @@ int _tmain(int argc, TCHAR* argv[])
     BOOL bFullPathCheck = FALSE;
     BOOL bUsage = TRUE;
     TCHAR lpFilePath[_MAX_PATH];
+    BOOL del = FALSE;
 
     for (int i = 1; i < argc; i++)
     {
@@ -226,25 +296,28 @@ int _tmain(int argc, TCHAR* argv[])
             bUsage = TRUE;
             break;
         }
+        else if (_tcsicmp(argv[i], _T("/d")) == 0 || _tcsicmp(argv[i], _T("-d")) == 0)
+        {
+            del = TRUE;
+        }
+        else if (_tcsicmp(argv[i], _T("/m")) == 0 || _tcsicmp(argv[i], _T("-m")) == 0)
+        {
+            bModule = TRUE;
+        }
         else
-            if (_tcsicmp(argv[i], _T("/m")) == 0 || _tcsicmp(argv[i], _T("-m")) == 0)
+        {
+            if (nonSwitchCount != 0)
             {
-                bModule = TRUE;
+                bUsage = TRUE;
+                break;
             }
-            else
-            {
-                if (nonSwitchCount != 0)
-                {
-                    bUsage = TRUE;
-                    break;
-                }
 
-                lpPath = argv[i];
+            lpPath = argv[i];
 
-                bUsage = FALSE;
+            bUsage = FALSE;
 
-                nonSwitchCount++;
-            }
+            nonSwitchCount++;
+        }
     }
 
     if (bUsage)
@@ -271,7 +344,7 @@ int _tmain(int argc, TCHAR* argv[])
     if (bModule)
         WhoUsesModule(lpFilePath, bFullPathCheck);
     else
-        WhoUsesFile(lpFilePath, bFullPathCheck);
+        WhoUsesFile(lpFilePath, bFullPathCheck,del);
 
     return 0;
 }
