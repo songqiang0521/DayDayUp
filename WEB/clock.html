@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas-Clock</title>
+</head>
+<body>
+    <div style="text-align:center">
+        <canvas id="canvas" width="300" height="300" style="background-color:#333"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+
+        ctx.translate(radius, radius);
+        radius = radius * 0.9;
+        setInterval(drawClock, 1000);
+
+        function drawClock() {
+            drawBackGround(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawMarks(ctx, radius);
+            drawHands(ctx, radius);
+        }
+
+        function drawBackGround(ctx, radius) {
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = "White";
+            ctx.fill();
+            var grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+            grad.addColorStop(0, '#333');
+            grad.addColorStop(0.5, 'white');
+            grad.addColorStop(1, '#333');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = radius * 0.1;
+            ctx.stroke();
+
+            //圆心处的实心圆
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+            ctx.fillStyle = '#333';
+            ctx.fill();
+        }
+
+        function drawNumbers(ctx, radius) {
+            ctx.font = radius * 0.15 + "px arial";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+
+            for (var i = 1; i < 13; i++) {
+                var angle = i * (2 * Math.PI / 12);
+                ctx.rotate(angle);
+                ctx.translate(0, -radius * 0.80);
+                ctx.rotate(-angle);
+                ctx.fillText(i.toString(), 0, 0);
+                ctx.rotate(angle);
+                ctx.translate(0, radius * 0.80);
+                ctx.rotate(-angle);
+            }
+        }
+
+        function drawMarks(ctx, radius) {
+
+            //轻刻度线
+            ctx.lineWidth = 1;
+            var markLength = radius * 0.05;
+            for (var i = 0; i < 60; i++) {
+                var angle = i * (2 * Math.PI / 60);
+                ctx.rotate(angle);
+                ctx.translate(0, -radius * 0.9);
+
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(0, -markLength);
+                ctx.stroke();
+
+                ctx.translate(0, radius * 0.9);
+                ctx.rotate(-angle);
+            }
+
+            //重刻度线
+            ctx.lineWidth = 2;
+            var markLength = radius * 0.1;
+            for (var i = 0; i < 12; i++) {
+                var angle = i * (2 * Math.PI / 12);
+                ctx.rotate(angle);
+                ctx.translate(0, -radius * 0.85);
+
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(0, -markLength);
+                ctx.stroke();
+
+                ctx.translate(0, radius * 0.85);
+                ctx.rotate(-angle);
+            }
+
+
+
+        }
+
+        function drawHands(ctx, radius) {
+            var now = new Date();
+            var hour = now.getHours(); //alert(hour);
+            var minute = now.getMinutes(); //alert(minute);
+            var second = now.getSeconds(); //alert(second);
+
+            var hourAngle;
+            var minuteAngle;
+            var secondAngle;
+
+            //小时的刻度线
+            hour = hour % 12;
+            hourAngle = (hour * 2 * Math.PI / 12) +
+                (minute * 2 * Math.PI / 12 / 60) +
+                (second * 2 * Math.PI / 12 / 3600);
+            drawHand(ctx, hourAngle, radius * 0.5, radius * 0.07);
+
+            //分钟的刻度线
+            minuteAngle = (minute * 2 * Math.PI / 60) +
+                 (second * 2 * Math.PI / 60 / 60);
+            drawHand(ctx, minuteAngle, radius * 0.8, radius * 0.07);
+
+            //秒的刻度线
+            secondAngle = second * 2 * Math.PI / 60;
+            drawHand(ctx, secondAngle, radius * 0.8, radius * 0.02);
+        }
+
+        function drawHand(ctx,angle,length,width){
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.rotate(angle);
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-angle);
+        }
+    </script>
+</body>
+</html>
