@@ -36,7 +36,7 @@ Libraries
 Blogs
 =========================
 * [C#内存模型-The C# Memory Model in Theory and Practice](https://msdn.microsoft.com/en-us/magazine/jj863136.aspx)
-
+* [Volatile keyword in C#](http://igoro.com/archive/volatile-keyword-in-c-memory-model-explained/)
 
 
 
