@@ -3,6 +3,7 @@
 Libraries
 =========================
 * [NLog-日志](https://github.com/NLog/NLog)
+* [Configration](https://github.com/aspnet/Configuration)
 
 
 
@@ -40,6 +41,7 @@ Blogs
 * [branch-prediction-分支预测](http://igoro.com/archive/fast-and-slow-if-statements-branch-prediction-in-modern-processors/)
 * [branch-prediction-分支预测-stackoverflow](http://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array)
 * [yield-return](https://www.kenneth-truyers.net/2016/05/12/yield-return-in-c/)
+* [Inversion of Control Containers and the Dependency Injection patter](https://martinfowler.com/articles/injection.html)
 
 
 
