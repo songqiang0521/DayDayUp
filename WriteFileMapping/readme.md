@@ -1,0 +1,1 @@
+通过文件映射的方式修改文件内容有一个优势:文件的最后修改日期不会发生改变，而且不会被FileSystemWatcher或者ReadDirectoryChange等函数捕获。
