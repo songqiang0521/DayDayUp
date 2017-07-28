@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Basics.MathTests
+namespace Basics.Tests.Math.Test
 {
     public class PrimeTest
     {
