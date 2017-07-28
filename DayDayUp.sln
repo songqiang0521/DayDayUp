@@ -7,6 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basics", "Basics\Basics.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basics.Tests", "Basics.Tests\Basics.Tests.csproj", "{F8F8F8B1-5F8B-47DD-9CC5-1B79E55685B1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DebuggingTips", "DebuggingTips", "{5E52DB0C-AA2F-45DC-BEEA-C14C73F450AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "configs", "configs", "{E00F697B-3E3E-490B-95AA-A4964A90F2A4}"
+	ProjectSection(SolutionItems) = preProject
+		DebuggingTips\configs\clearjit.bat = DebuggingTips\configs\clearjit.bat
+		DebuggingTips\configs\DisableAuto.bat = DebuggingTips\configs\DisableAuto.bat
+		DebuggingTips\configs\edit_local_dumps_key.cmd = DebuggingTips\configs\edit_local_dumps_key.cmd
+		DebuggingTips\configs\FusionLog.md = DebuggingTips\configs\FusionLog.md
+		DebuggingTips\configs\readme.txt = DebuggingTips\configs\readme.txt
+		DebuggingTips\configs\symstore.txt = DebuggingTips\configs\symstore.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E00F697B-3E3E-490B-95AA-A4964A90F2A4} = {5E52DB0C-AA2F-45DC-BEEA-C14C73F450AB}
 	EndGlobalSection
 EndGlobal
