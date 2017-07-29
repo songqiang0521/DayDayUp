@@ -1,4 +1,4 @@
-﻿namespace mem_leaker
+﻿namespace LeakMemory
 {
     partial class Form1
     {
