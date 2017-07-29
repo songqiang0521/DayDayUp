@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading;
 
 namespace DeleteDirectory
@@ -34,6 +30,9 @@ namespace DeleteDirectory
 
         static void Main(string[] args)
         {
+            DeleteDirectory(@"X:\test");
+
+
         }
     }
 }
