@@ -7,3 +7,4 @@ Str = Replace ( IniFl.ReadAll,"InitAddress=03000000","InitAddress=04000000")
 Set IniFl = Fso.OpenTextFile ("c:\Windows\"&IniFn,2)
 IniFl.Write Str 
 IniFl.Close
+

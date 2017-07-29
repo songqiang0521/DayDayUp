@@ -1,1 +1,2 @@
 symstore add /r /f srcpath /s dstpath  /t "productname" /v "versionname" /c "comment" 
+

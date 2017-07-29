@@ -1585,3 +1585,4 @@ call GetSysPortsInfo(sysportsFileName, sysportsFileLog)
 call GetVmswitchInfo(vmswitchFileName)
 
 Call GetVmswitchLog(vmswitchLogFileName, vmmsLogFileName)
+

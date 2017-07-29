@@ -16,3 +16,4 @@ The first argument to this helper script is the folder location that WER should 
 generates its user-mode crash dumps, and the second argument specifies the type of those dump
 files. A value of 2 indicates that you would like WER to generate crash dumps with full memory information
 
+

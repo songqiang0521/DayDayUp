@@ -54,3 +54,4 @@ echo        -dt - type of dump to generate (1: minidump, 2: full dump)
 echo.
 
 goto :EOF
+
